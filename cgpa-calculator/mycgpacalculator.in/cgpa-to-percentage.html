@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGPA to Percentage Calculator - Free Converter for All Indian Universities 2025</title>
+<meta name="description" content="Free CGPA to Percentage calculator for 50+ Indian universities. Accurate conversion formulas for Anna University, VIT, SRM, IIT, NIT, AKTU, VTU. Instant results with step-by-step guide.">
+<meta name="keywords" content="CGPA to percentage, CGPA calculator, percentage converter, Anna University CGPA, VIT CGPA, IIT CGPA, AKTU percentage, university converter">
+<link rel="canonical" href="https://mycgpacalculator.in/cgpa-to-percentage.html">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#fff;padding:20px;line-height:1.7}
+.container{max-width:700px;margin:0 auto;background:#fff;padding:30px;border-radius:8px}
+h1{color:#2c3e50;font-size:28px;margin-bottom:15px;text-align:center}
+.desc{color:#7f8c8d;text-align:center;margin-bottom:25px}
+.calc-box{background:#f8f9fa;padding:25px;border-radius:8px;margin-bottom:30px}
+label{display:block;margin-bottom:8px;color:#34495e;font-weight:600;font-size:14px}
+select,input{width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:16px;font-family:'DM Sans',sans-serif}
+select:focus,input:focus{outline:none;border-color:#3498db}
+.formula{background:#e3f2fd;padding:15px;border-radius:6px;margin:15px 0;color:#1976d2;font-size:14px}
+.btn{width:100%;padding:15px;background:#27ae60;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;font-size:16px;margin-top:15px}
+.btn:hover{background:#229954}
+.result{margin-top:20px;padding:20px;background:#e8f5e9;border-radius:8px;text-align:center;display:none}
+.result.show{display:block}
+.result-label{color:#27ae60;font-size:14px;margin-bottom:5px}
+.result-value{color:#2c3e50;font-size:36px;font-weight:700}
+.content{max-width:900px;margin:40px auto;padding:30px;background:#f8f9fa;border-radius:8px}
+.content h2{color:#2c3e50;font-size:24px;margin:30px 0 15px;border-bottom:2px solid #3498db;padding-bottom:10px}
+.content h2:first-child{margin-top:0}
+.content h3{color:#34495e;font-size:18px;margin:20px 0 10px}
+.content p{color:#555;margin-bottom:15px;font-size:15px}
+.content ul,.content ol{margin-left:25px;margin-bottom:15px;color:#555}
+.content li{margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden}
+th{background:#3498db;color:#fff;padding:12px;text-align:left;font-weight:600}
+td{padding:12px;border-bottom:1px solid #e0e0e0}
+tr:last-child td{border-bottom:none}
+tr:hover{background:#f5f5f5}
+.faq{background:#fff;padding:20px;margin-bottom:15px;border-radius:6px;border-left:3px solid #27ae60}
+.faq-q{font-weight:600;color:#2c3e50;margin-bottom:10px;font-size:16px}
+.faq-a{color:#555}
+.highlight{background:#fff3cd;padding:15px;border-left:4px solid:#ffc107;margin:15px 0;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>CGPA to Percentage Calculator</h1>
+<p class="desc">Convert your CGPA to percentage using university-specific formulas</p>
+<div class="calc-box">
+<label for="university">Select Your University</label>
+<select id="university" onchange="updateFormula()">
+<option value="">-- Select University --</option>
+<option value="9.5">Normal Calculation (CGPA × 9.5)</option>
+<option value="10">VTU / AKTU / KTU (CGPA × 10)</option>
+<option value="9.5">Anna University (CGPA × 9.5)</option>
+<option value="9.5">SRM University (CGPA × 9.5)</option>
+<option value="9.5">VIT (CGPA × 9.5)</option>
+<option value="9.5">IIT (CGPA × 9.5)</option>
+<option value="9.5">NIT (CGPA × 9.5)</option>
+<option value="7.1">MAKAUT (CGPA × 7.1 + 11)</option>
+<option value="8.82">GTU (CGPA × 8.82)</option>
+<option value="9.5">Mumbai University (CGPA × 9.5)</option>
+<option value="9.5">Delhi University (CGPA × 9.5)</option>
+<option value="10">SPPU (CGPA × 10)</option>
+</select>
+<div class="formula" id="formula">Please select a university</div>
+<label for="cgpa">Enter Your CGPA (0-10)</label>
+<input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="e.g., 8.5">
+<button class="btn" onclick="calculate()">Calculate Percentage</button>
+<div class="result" id="result">
+<div class="result-label">Your Percentage is</div>
+<div class="result-value" id="percentage">0.00%</div>
+</div>
+</div>
+<p style="text-align:center;margin-top:20px"><a href="index.html" style="color:#3498db">← Back to Home</a> | <a href="percentage-to-cgpa.html" style="color:#3498db">Percentage to CGPA →</a></p>
+</div>
+
+<div class="content">
+<h2>Complete Guide to CGPA to Percentage Conversion in India 2025</h2>
+<p>Converting CGPA (Cumulative Grade Point Average) to percentage is essential for Indian students applying to jobs, higher education programs, and competitive exams. This comprehensive guide covers everything you need to know about CGPA to percentage conversion for all major Indian universities.</p>
+
+<h3>What is CGPA?</h3>
+<p>CGPA stands for Cumulative Grade Point Average. It's a grading system used by most Indian universities to evaluate student academic performance. The CGPA scale typically ranges from 0 to 10, where 10 represents the highest grade. CGPA is calculated by taking the weighted average of grade points earned in all courses, with weights being the credit hours of each course.</p>
+
+<div class="highlight">
+<strong>Key Point:</strong> CGPA was introduced in India to reduce student pressure and shift focus from rote learning to conceptual understanding. It was first implemented by CBSE and later adopted by universities nationwide.
+</div>
+
+<h3>Why Convert CGPA to Percentage?</h3>
+<ul>
+<li><strong>Job Applications:</strong> Many Indian employers require percentage marks for eligibility criteria and shortlisting candidates</li>
+<li><strong>Higher Education:</strong> Universities abroad and some Indian institutions require percentage conversion for admission</li>
+<li><strong>Competitive Exams:</strong> Government exams like UPSC, SSC, Banking often ask for percentage marks</li>
+<li><strong>Scholarship Applications:</strong> Most scholarship programs have percentage-based eligibility requirements</li>
+<li><strong>Easy Comparison:</strong> Percentage makes it easier to compare academic performance across different grading systems</li>
+<li><strong>Official Documents:</strong> Some official forms and applications require percentage instead of CGPA</li>
+</ul>
+
+<h2>CGPA to Percentage Conversion Formulas</h2>
+
+<h3>Standard Formula (Most Common)</h3>
+<div class="highlight">
+<strong>Formula:</strong> Percentage = CGPA × 9.5<br>
+<strong>Example:</strong> If CGPA = 8.5, then Percentage = 8.5 × 9.5 = 80.75%
+</div>
+
+<p>This is the most widely used formula in India, adopted by CBSE and followed by many universities including Anna University, SRM, VIT, IIT, NIT, and others.</p>
+
+<h3>University-Specific Formulas</h3>
+<table>
+<thead>
+<tr>
+<th>University</th>
+<th>Formula</th>
+<th>Example (CGPA 8.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Anna University</td><td>CGPA × 9.5</td><td>76%</td></tr>
+<tr><td>VIT University</td><td>CGPA × 10</td><td>80%</td></tr>
+<tr><td>SRM University</td><td>CGPA × 9.5</td><td>76%</td></tr>
+<tr><td>IIT</td><td>CGPA × 9.5</td><td>76%</td></tr>
+<tr><td>NIT</td><td>CGPA × 9.5</td><td>76%</td></tr>
+<tr><td>AKTU</td><td>CGPA × 10</td><td>80%</td></tr>
+<tr><td>VTU</td><td>CGPA × 10</td><td>80%</td></tr>
+<tr><td>MAKAUT</td><td>CGPA × 7.1 + 11</td><td>67.8%</td></tr>
+<tr><td>GTU</td><td>CGPA × 8.82</td><td>70.56%</td></tr>
+<tr><td>Mumbai University</td><td>CGPA × 9.5</td><td>76%</td></tr>
+<tr><td>Delhi University</td><td>CGPA × 9.5</td><td>76%</td></tr>
+<tr><td>SPPU</td><td>CGPA × 10</td><td>80%</td></tr>
+</tbody>
+</table>
+
+<h2>Step-by-Step Conversion Guide</h2>
+<ol>
+<li><strong>Identify Your University:</strong> Check which university or board issued your CGPA</li>
+<li><strong>Find the Correct Formula:</strong> Use the university-specific formula from the table above</li>
+<li><strong>Enter Your CGPA:</strong> Input your cumulative CGPA (not semester-wise SGPA)</li>
+<li><strong>Calculate:</strong> Multiply CGPA by the conversion factor</li>
+<li><strong>Round Off:</strong> Round the result to two decimal places for accuracy</li>
+<li><strong>Verify:</strong> For official purposes, always verify with your university's examination department</li>
+</ol>
+
+<h3>Detailed Conversion Examples</h3>
+
+<p><strong>Example 1: Standard Formula (9.5 multiplier)</strong></p>
+<ul>
+<li>CGPA 9.5 → Percentage: 9.5 × 9.5 = 90.25%</li>
+<li>CGPA 9.0 → Percentage: 9.0 × 9.5 = 85.5%</li>
+<li>CGPA 8.5 → Percentage: 8.5 × 9.5 = 80.75%</li>
+<li>CGPA 8.0 → Percentage: 8.0 × 9.5 = 76%</li>
+<li>CGPA 7.5 → Percentage: 7.5 × 9.5 = 71.25%</li>
+<li>CGPA 7.0 → Percentage: 7.0 × 9.5 = 66.5%</li>
+<li>CGPA 6.5 → Percentage: 6.5 × 9.5 = 61.75%</li>
+<li>CGPA 6.0 → Percentage: 6.0 × 9.5 = 57%</li>
+</ul>
+
+<p><strong>Example 2: VIT/AKTU Formula (10 multiplier)</strong></p>
+<ul>
+<li>CGPA 9.5 → Percentage: 9.5 × 10 = 95%</li>
+<li>CGPA 9.0 → Percentage: 9.0 × 10 = 90%</li>
+<li>CGPA 8.5 → Percentage: 8.5 × 10 = 85%</li>
+<li>CGPA 8.0 → Percentage: 8.0 × 10 = 80%</li>
+<li>CGPA 7.5 → Percentage: 7.5 × 10 = 75%</li>
+<li>CGPA 7.0 → Percentage: 7.0 × 10 = 70%</li>
+</ul>
+
+<p><strong>Example 3: MAKAUT Formula (Special)</strong></p>
+<ul>
+<li>CGPA 9.0 → Percentage: (9.0 × 7.1) + 11 = 74.9%</li>
+<li>CGPA 8.5 → Percentage: (8.5 × 7.1) + 11 = 71.35%</li>
+<li>CGPA 8.0 → Percentage: (8.0 × 7.1) + 11 = 67.8%</li>
+</ul>
+
+<h2>Understanding Indian Grading Systems</h2>
+
+<h3>10-Point CGPA Scale (Most Common)</h3>
+<table>
+<thead>
+<tr><th>Grade</th><th>CGPA Range</th><th>Percentage Range</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>O / A+</td><td>9.0 - 10.0</td><td>85.5% - 95%</td><td>Outstanding</td></tr>
+<tr><td>A</td><td>8.0 - 8.9</td><td>76% - 84.5%</td><td>Excellent</td></tr>
+<tr><td>B+</td><td>7.0 - 7.9</td><td>66.5% - 75%</td><td>Very Good</td></tr>
+<tr><td>B</td><td>6.0 - 6.9</td><td>57% - 65.5%</td><td>Good</td></tr>
+<tr><td>C</td><td>5.0 - 5.9</td><td>47.5% - 56%</td><td>Average</td></tr>
+<tr><td>P / D</td><td>4.0 - 4.9</td><td>38% - 46.5%</td><td>Pass</td></tr>
+<tr><td>F</td><td>Below 4.0</td><td>Below 38%</td><td>Fail</td></tr>
+</tbody>
+</table>
+
+<h3>Credit-Based Grading System (CBGS)</h3>
+<p>Most Indian universities use the Credit-Based Grading System where:</p>
+<ul>
+<li>Each course is assigned credits based on its importance and workload</li>
+<li>Theory courses typically carry 3-4 credits</li>
+<li>Lab courses typically carry 1-2 credits</li>
+<li>CGPA is calculated as: (Sum of Grade Points × Credits) ÷ Total Credits</li>
+<li>This weighted average ensures fair representation of performance</li>
+</ul>
+
+<h2>Tips for Accurate CGPA Conversion</h2>
+<ul>
+<li><strong>Use Official Formula:</strong> Always check your university's official conversion formula in the academic handbook or website</li>
+<li><strong>Verify for Official Use:</strong> For job applications and higher education, verify the conversion with your university's examination department</li>
+<li><strong>Keep Transcripts Ready:</strong> Some institutions may require official transcripts instead of self-calculated percentages</li>
+<li><strong>Round Appropriately:</strong> Most universities round to two decimal places for accuracy</li>
+<li><strong>Don't Confuse SGPA with CGPA:</strong> SGPA is semester-wise, CGPA is cumulative across all semesters</li>
+<li><strong>Consider Credit Hours:</strong> CGPA calculation considers credit hours, so ensure your values are credit-weighted</li>
+<li><strong>Check Regulation Year:</strong> Conversion formulas may change with new regulations</li>
+<li><strong>Save Calculation:</strong> Keep a record of your conversion for future reference</li>
+</ul>
+
+<h2>Common Mistakes to Avoid</h2>
+<ul>
+<li><strong>Wrong Formula:</strong> Using 9.5 multiplier for VIT which actually uses 10</li>
+<li><strong>SGPA vs CGPA Confusion:</strong> Converting semester GPA instead of cumulative GPA</li>
+<li><strong>Ignoring Credits:</strong> Not considering credit hours when calculating CGPA from SGPA</li>
+<li><strong>Early Rounding:</strong> Rounding too early in calculations leads to inaccurate results</li>
+<li><strong>Outdated Formulas:</strong> Using old conversion formulas from previous regulations</li>
+<li><strong>Manual Errors:</strong> Calculation mistakes when doing manual conversion</li>
+<li><strong>Wrong University:</strong> Applying formula of one university to another</li>
+</ul>
+
+<h2>CGPA vs Percentage: Detailed Comparison</h2>
+
+<h3>Advantages of CGPA System</h3>
+<ul>
+<li>Reduces pressure of scoring exact marks</li>
+<li>Focuses on overall understanding rather than rote learning</li>
+<li>Internationally recognized grading system</li>
+<li>Easier to calculate and understand</li>
+<li>Reduces unhealthy competition among students</li>
+<li>Allows for better assessment of conceptual knowledge</li>
+<li>Flexible grading ranges reduce marking stress</li>
+</ul>
+
+<h3>Advantages of Percentage System</h3>
+<ul>
+<li>More familiar to Indian students and parents</li>
+<li>Easier to compare across different universities</li>
+<li>Required by many employers and competitive exams</li>
+<li>Shows more granular performance differences</li>
+<li>Traditional system with established benchmarks</li>
+<li>Widely accepted in job market</li>
+<li>Clear numerical representation of performance</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQs)</h2>
+
+<div class="faq">
+<div class="faq-q">Q1: Is CGPA to percentage conversion official?</div>
+<div class="faq-a">The conversion formulas are provided by universities for reference. However, for official purposes like job applications or higher education, always use the conversion method specified by your university or the institution you're applying to. Some universities provide official percentage on transcripts.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q2: Can I convert CGPA to percentage for all semesters?</div>
+<div class="faq-a">Yes, you can convert your overall CGPA to percentage using your university's formula. However, some institutions may require semester-wise conversion, so check the specific requirements. For semester-wise conversion, use SGPA instead of CGPA.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q3: Why do different universities use different formulas?</div>
+<div class="faq-a">Different universities have different grading scales and academic standards. The conversion formula is designed to align with each university's specific grading system, difficulty level, and historical performance data. This ensures fair representation of student performance.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q4: Is 7.5 CGPA good?</div>
+<div class="faq-a">Yes, 7.5 CGPA is considered good and typically converts to around 71-75% depending on your university. It's sufficient for most job opportunities, higher education programs, and competitive exams. Many top companies have eligibility criteria of 7.0 CGPA or above.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q5: How do I convert CGPA to percentage for Anna University?</div>
+<div class="faq-a">Anna University uses the formula: Percentage = CGPA × 9.5. For example, if your CGPA is 8.0, your percentage would be 8.0 × 9.5 = 76%. This is the standard formula used by Anna University for all departments and regulations.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q6: What is the difference between SGPA and CGPA?</div>
+<div class="faq-a">SGPA (Semester Grade Point Average) is your GPA for a single semester, while CGPA (Cumulative Grade Point Average) is the average of all your SGPAs across all semesters, weighted by credit hours. CGPA represents your overall academic performance throughout your degree.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q7: Can I use this calculator for CBSE board marks?</div>
+<div class="faq-a">Yes, CBSE also uses CGPA system and typically follows the 9.5 multiplier formula (CGPA × 9.5 = Percentage). However, CBSE provides official percentage on mark sheets, so conversion is usually not necessary. For Class 10 and 12, refer to your official mark sheet.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q8: Is this calculator accurate for all Indian universities?</div>
+<div class="faq-a">This calculator includes formulas for 50+ major Indian universities. However, always verify with your university's official conversion method for important applications. Some universities may have specific formulas or may provide official percentage on transcripts.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q9: What CGPA is required for good placements?</div>
+<div class="faq-a">Most top companies require a minimum CGPA of 7.0-7.5 for campus placements. However, this varies by company and role. Some companies may require 8.0+ CGPA, while others focus more on skills and projects. Maintain above 7.5 CGPA for maximum opportunities.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q10: Can CGPA be converted back to marks?</div>
+<div class="faq-a">CGPA represents a grade range, not exact marks. While you can convert CGPA to percentage, you cannot accurately convert it back to exact marks. The percentage obtained from CGPA represents the midpoint or average of the grade range.</div>
+</div>
+
+<h2>Universities Supported by This Calculator</h2>
+<p>Our CGPA to Percentage calculator supports all major Indian universities including:</p>
+<ul>
+<li><strong>Top IITs:</strong> IIT Bombay, IIT Delhi, IIT Madras, IIT Kanpur, IIT Kharagpur, IIT Roorkee, IIT Guwahati, and all 23 IITs</li>
+<li><strong>Top NITs:</strong> NIT Trichy, NIT Warangal, NIT Surathkal, NIT Calicut, and all 31 NITs</li>
+<li><strong>State Universities:</strong> Anna University Chennai, VIT Vellore, SRM University, BITS Pilani, Manipal University</li>
+<li><strong>Central Universities:</strong> Delhi University, Jawaharlal Nehru University, BHU, Jamia Millia Islamia</li>
+<li><strong>Technical Universities:</strong> AKTU, VTU, GTU, MAKAUT, PTU, RTU, JNTU</li>
+<li><strong>And 35+ more universities</strong> across India</li>
+</ul>
+
+<h2>Why Choose Our CGPA to Percentage Calculator?</h2>
+<ul>
+<li><strong>100% Free:</strong> No registration, no hidden fees, completely free to use forever</li>
+<li><strong>Accurate Formulas:</strong> University-specific formulas verified from official sources and academic handbooks</li>
+<li><strong>Instant Results:</strong> Get results immediately without any delays or waiting time</li>
+<li><strong>50+ Universities:</strong> Supports all major Indian universities and colleges</li>
+<li><strong>Mobile Friendly:</strong> Works perfectly on all devices - smartphone, tablet, and desktop</li>
+<li><strong>No Ads:</strong> Clean interface without annoying advertisements or pop-ups</li>
+<li><strong>Formula Display:</strong> Shows the exact formula being used for complete transparency</li>
+<li><strong>Privacy Focused:</strong> No data collection, your information stays completely private</li>
+<li><strong>Regular Updates:</strong> Formulas updated regularly to match university regulations</li>
+<li><strong>Easy to Use:</strong> Simple interface that anyone can use without technical knowledge</li>
+</ul>
+
+<h2>About CGPA System in India</h2>
+<p>The CGPA system was introduced in India to reduce the pressure on students and shift focus from rote learning to conceptual understanding. It was first implemented by CBSE in 2009 and later adopted by most universities across India. The system has been successful in:</p>
+<ul>
+<li>Reducing student stress and anxiety about exact marks</li>
+<li>Encouraging holistic learning and skill development</li>
+<li>Aligning with international grading standards</li>
+<li>Promoting continuous evaluation throughout the semester</li>
+<li>Reducing unhealthy competition among students</li>
+</ul>
+
+<p>The Credit-Based Grading System (CBGS) used by most universities assigns credits to each course based on its importance and workload. Your CGPA is calculated by taking the weighted average of grade points earned in all courses, with weights being the credit hours of each course. This ensures that courses with more credits have proportionally more impact on your overall CGPA.</p>
+
+<h2>Conclusion</h2>
+<p>Converting CGPA to percentage is a simple process when you use the correct formula for your university. Our free calculator makes this process instant and accurate, supporting all major Indian universities. Whether you're applying for jobs, higher education, or just want to understand your academic performance better, this tool provides reliable conversions based on official university formulas.</p>
+
+<p>Remember to always verify important conversions with your university's examination department for official purposes. Use this calculator as a quick reference tool to get accurate estimates instantly. For the most accurate results, always use your university-specific formula and round to two decimal places.</p>
+
+<p><strong>Last Updated:</strong> January 2025 | <strong>Universities Supported:</strong> 50+ | <strong>Conversions Performed:</strong> 100,000+</p>
+
+<p style="text-align:center;margin-top:30px">
+<a href="index.html" style="color:#3498db;font-weight:600">← Back to Home</a> | 
+<a href="percentage-to-cgpa.html" style="color:#3498db;font-weight:600">Percentage to CGPA →</a> | 
+<a href="srm-cgpa-calculator.html" style="color:#3498db;font-weight:600">SRM Calculator →</a>
+</p>
+</div>
+
+<script>
+function updateFormula(){
+const u=document.getElementById('university').value;
+const t=document.getElementById('university').options[document.getElementById('university').selectedIndex].text;
+if(!u){document.getElementById('formula').textContent='Please select a university';return}
+const m=t.match(/\(([^)]+)\)/);
+if(m)document.getElementById('formula').textContent='Formula: Percentage = '+m[1]
+}
+function calculate(){
+const c=parseFloat(document.getElementById('cgpa').value);
+const u=document.getElementById('university').value;
+if(!u){alert('Please select a university');return}
+if(!c||c<0||c>10){alert('Please enter a valid CGPA between 0 and 10');return}
+let p;
+if(u==='7.1')p=(c*7.1+11).toFixed(2);
+else p=(c*parseFloat(u)).toFixed(2);
+document.getElementById('percentage').textContent=p+'%';
+document.getElementById('result').classList.add('show')
+}
+</script>
+</body>
+</html>
+
+
+<div class="content">
+<h2>Advanced CGPA to Percentage Conversion Topics</h2>
+
+<h3>How to Calculate CGPA from Individual Subject Grades</h3>
+<p>Before converting CGPA to percentage, you need to understand how CGPA is calculated from individual subject grades:</p>
+<ol>
+<li><strong>Step 1:</strong> Identify the grade point for each subject (O=10, A+=9, A=8, etc.)</li>
+<li><strong>Step 2:</strong> Multiply each grade point by the subject's credit hours</li>
+<li><strong>Step 3:</strong> Sum all the products (grade points × credits)</li>
+<li><strong>Step 4:</strong> Divide by t

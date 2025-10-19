@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRM University CGPA Calculator - Free Calculator for All Departments 2025</title>
+<meta name="description" content="Free SRM University CGPA calculator for CSE, ECE, EEE, MECH, IT, and all engineering departments. Calculate CGPA from SGPA with accurate SRM grading system. Instant results for 2021 regulation.">
+<meta name="keywords" content="SRM CGPA calculator, SRM University GPA, SRM grading system, SRM CSE calculator, SRM ECE calculator, SRM credit system, SRM percentage">
+<link rel="canonical" href="https://mycgpacalculator.in/srm-calculator.html">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#fff;padding:20px;line-height:1.7}
+.container{max-width:700px;margin:0 auto;background:#fff;padding:30px;border-radius:8px}
+h1{color:#2c3e50;font-size:28px;margin-bottom:15px;text-align:center}
+.desc{color:#7f8c8d;text-align:center;margin-bottom:25px}
+.calc-box{background:#f8f9fa;padding:25px;border-radius:8px;margin-bottom:30px}
+.grade-info{background:#fff3cd;padding:15px;border-radius:6px;margin-bottom:20px;font-size:13px}
+.grade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.grade-item{background:#fff;padding:8px;border-radius:4px;text-align:center;font-size:12px;font-weight:600}
+label{display:block;margin-bottom:8px;color:#34495e;font-weight:600;font-size:14px}
+select,input{width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:16px;font-family:'DM Sans',sans-serif}
+select:focus,input:focus{outline:none;border-color:#3498db}
+.sem-row{display:grid;grid-template-columns:1fr 2fr 2fr;gap:10px;margin-bottom:10px;align-items:center}
+.sem-label{color:#34495e;font-weight:600;font-size:14px}
+.btn{padding:12px 24px;background:#3498db;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:14px;margin-right:10px}
+.btn-calc{width:100%;padding:15px;background:#27ae60;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;font-size:16px;margin-top:15px}
+.btn:hover,.btn-calc:hover{opacity:0.9}
+.result{margin-top:20px;padding:20px;background:#e8f5e9;border-radius:8px;text-align:center;display:none}
+.result.show{display:block}
+.result-label{color:#27ae60;font-size:14px;margin-bottom:5px}
+.result-value{color:#2c3e50;font-size:36px;font-weight:700}
+.result-details{margin-top:15px;padding-top:15px;border-top:1px solid #c8e6c9;font-size:14px}
+.content{max-width:900px;margin:40px auto;padding:30px;background:#f8f9fa;border-radius:8px}
+.content h2{color:#2c3e50;font-size:24px;margin:30px 0 15px;border-bottom:2px solid #3498db;padding-bottom:10px}
+.content h2:first-child{margin-top:0}
+.content h3{color:#34495e;font-size:18px;margin:20px 0 10px}
+.content p{color:#555;margin-bottom:15px;font-size:15px}
+.content ul,.content ol{margin-left:25px;margin-bottom:15px;color:#555}
+.content li{margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden}
+th{background:#3498db;color:#fff;padding:12px;text-align:left;font-weight:600}
+td{padding:12px;border-bottom:1px solid #e0e0e0}
+tr:last-child td{border-bottom:none}
+tr:hover{background:#f5f5f5}
+.faq{background:#fff;padding:20px;margin-bottom:15px;border-radius:6px;border-left:3px solid #27ae60}
+.faq-q{font-weight:600;color:#2c3e50;margin-bottom:10px;font-size:16px}
+.faq-a{color:#555}
+.highlight{background:#fff3cd;padding:15px;border-left:4px solid #ffc107;margin:15px 0;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>SRM University CGPA Calculator</h1>
+<p class="desc">Calculate your SRM CGPA from semester-wise SGPA and credits</p>
+<div class="calc-box">
+<div class="grade-info">
+<strong>SRM Grading System:</strong>
+<div class="grade-grid">
+<div class="grade-item">O: 10</div>
+<div class="grade-item">A+: 9</div>
+<div class="grade-item">A: 8</div>
+<div class="grade-item">B+: 7</div>
+<div class="grade-item">B: 6</div>
+<div class="grade-item">C: 5</div>
+<div class="grade-item">P: 4</div>
+<div class="grade-item">F: 0</div>
+</div>
+</div>
+<div id="semesters"></div>
+<button class="btn" onclick="addSem()">+ Add Semester</button>
+<button class="btn-calc" onclick="calc()">Calculate CGPA</button>
+<div class="result" id="result">
+<div class="result-label">Your CGPA is</div>
+<div class="result-value" id="cgpa">0.00</div>
+<div class="result-details" id="details"></div>
+</div>
+</div>
+<p style="text-align:center;margin-top:20px"><a href="index.html" style="color:#3498db">← Back to Home</a></p>
+</div>
+
+<div class="content">
+<h2>Complete Guide to SRM University CGPA Calculation 2025</h2>
+<p>SRM University (SRM Institute of Science and Technology) uses a comprehensive credit-based grading system for evaluating student performance. This guide covers everything you need to know about calculating CGPA at SRM University for all engineering branches including CSE, ECE, EEE, MECH, IT, and more.</p>
+
+<h3>About SRM University</h3>
+<p>SRM Institute of Science and Technology is one of India's top private universities with campuses in Chennai (Kattankulathur), Ramapuram, Vadapalani, Delhi-NCR, and other locations. The university offers undergraduate, postgraduate, and doctoral programs across various disciplines.</p>
+
+<div class="highlight">
+<strong>Important:</strong> SRM University follows the 2021 regulation for most current students. The grading system and credit structure may vary slightly for different regulations. Always refer to your specific regulation handbook.
+</div>
+
+<h3>SRM University Grading System</h3>
+<p>SRM uses a 10-point grading scale where:</p>
+<table>
+<thead>
+<tr><th>Grade</th><th>Grade Points</th><th>Marks Range</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>O</td><td>10</td><td>90-100</td><td>Outstanding</td></tr>
+<tr><td>A+</td><td>9</td><td>80-89</td><td>Excellent</td></tr>
+<tr><td>A</td><td>8</td><td>70-79</td><td>Very Good</td></tr>
+<tr><td>B+</td><td>7</td><td>60-69</td><td>Good</td></tr>
+<tr><td>B</td><td>6</td><td>50-59</td><td>Above Average</td></tr>
+<tr><td>C</td><td>5</td><td>40-49</td><td>Average</td></tr>
+<tr><td>P</td><td>4</td><td>35-39</td><td>Pass</td></tr>
+<tr><td>F</td><td>0</td><td>Below 35</td><td>Fail</td></tr>
+</tbody>
+</table>
+
+<h2>How to Calculate CGPA at SRM University</h2>
+
+<h3>CGPA Calculation Formula</h3>
+<div class="highlight">
+<strong>Formula:</strong> CGPA = (Sum of SGPA × Credits for each semester) ÷ Total Credits<br><br>
+<strong>Example:</strong><br>
+Semester 1: SGPA = 8.5, Credits = 20<br>
+Semester 2: SGPA = 9.0, Credits = 22<br>
+CGPA = (8.5 × 20 + 9.0 × 22) ÷ (20 + 22) = 8.76
+</div>
+
+<h3>Step-by-Step Calculation Guide</h3>
+<ol>
+<li><strong>Collect SGPA:</strong> Get your SGPA for each completed semester from your grade sheet</li>
+<li><strong>Note Credits:</strong> Record the total credits for each semester (usually 18-24 credits)</li>
+<li><strong>Multiply:</strong> Multiply each semester's SGPA by its total credits</li>
+<li><strong>Sum Up:</strong> Add all the products from step 3</li>
+<li><strong>Divide:</strong> Divide the sum by total credits across all semesters</li>
+<li><strong>Round:</strong> Round the result to two decimal places</li>
+</ol>
+
+<h2>SRM University Credit System</h2>
+
+<h3>Credit Distribution by Course Type</h3>
+<table>
+<thead>
+<tr><th>Course Type</th><th>Typical Credits</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>Theory Courses</td><td>3-4 credits</td><td>Mathematics, Physics, Core subjects</td></tr>
+<tr><td>Lab Courses</td><td>1-2 credits</td><td>Programming Lab, Circuit Lab</td></tr>
+<tr><td>Project Work</td><td>2-6 credits</td><td>Mini Project, Major Project</td></tr>
+<tr><td>Internship</td><td>2-4 credits</td><td>Industrial Training</td></tr>
+<tr><td>Electives</td><td>3 credits</td><td>Professional/Open Electives</td></tr>
+</tbody>
+</table>
+
+<h3>Semester-wise Credit Distribution</h3>
+<ul>
+<li><strong>Semester 1-2:</strong> 20-22 credits (Foundation courses)</li>
+<li><strong>Semester 3-4:</strong> 22-24 credits (Core subjects)</li>
+<li><strong>Semester 5-6:</strong> 20-23 credits (Core + Electives)</li>
+<li><strong>Semester 7:</strong> 18-20 credits (Electives + Project)</li>
+<li><strong>Semester 8:</strong> 15-20 credits (Project + Internship)</li>
+</ul>
+
+<h2>Department-Specific Information</h2>
+
+<h3>Computer Science and Engineering (CSE)</h3>
+<p>CSE is one of the most popular departments at SRM with focus on programming, algorithms, data structures, artificial intelligence, and machine learning. Total credits: 160-165 across 8 semesters.</p>
+
+<h3>Electronics and Communication Engineering (ECE)</h3>
+<p>ECE focuses on electronic devices, communication systems, signal processing, and VLSI design. Total credits: 160-165 across 8 semesters.</p>
+
+<h3>Electrical and Electronics Engineering (EEE)</h3>
+<p>EEE covers power systems, electrical machines, control systems, and renewable energy. Total credits: 160-165 across 8 semesters.</p>
+
+<h3>Mechanical Engineering (MECH)</h3>
+<p>MECH includes thermodynamics, fluid mechanics, manufacturing, and design. Total credits: 160-165 across 8 semesters.</p>
+
+<h3>Information Technology (IT)</h3>
+<p>IT focuses on software development, databases, networking, and web technologies. Total credits: 160-165 across 8 semesters.</p>
+
+<h2>SRM CGPA to Percentage Conversion</h2>
+
+<h3>Official Conversion Formula</h3>
+<div class="highlight">
+<strong>Formula:</strong> Percentage = CGPA × 9.5<br>
+<strong>Example:</strong> If CGPA = 8.5, then Percentage = 8.5 × 9.5 = 80.75%
+</div>
+
+<h3>CGPA to Percentage Table</h3>
+<table>
+<thead>
+<tr><th>CGPA</th><th>Percentage</th><th>Grade</th></tr>
+</thead>
+<tbody>
+<tr><td>10.0</td><td>95%</td><td>O</td></tr>
+<tr><td>9.5</td><td>90.25%</td><td>O</td></tr>
+<tr><td>9.0</td><td>85.5%</td><td>A+</td></tr>
+<tr><td>8.5</td><td>80.75%</td><td>A+</td></tr>
+<tr><td>8.0</td><td>76%</td><td>A</td></tr>
+<tr><td>7.5</td><td>71.25%</td><td>B+</td></tr>
+<tr><td>7.0</td><td>66.5%</td><td>B+</td></tr>
+<tr><td>6.5</td><td>61.75%</td><td>B</td></tr>
+<tr><td>6.0</td><td>57%</td><td>B</td></tr>
+</tbody>
+</table>
+
+<h2>Tips for Improving Your SRM CGPA</h2>
+<ul>
+<li><strong>Focus on High-Credit Courses:</strong> Courses with more credits have greater impact on CGPA</li>
+<li><strong>Consistent Performance:</strong> Maintain steady performance across all semesters</li>
+<li><strong>Attend Classes Regularly:</strong> SRM has 75% attendance requirement</li>
+<li><strong>Complete Assignments:</strong> Internal marks contribute to final grades</li>
+<li><strong>Prepare for Exams:</strong> Mid-term and end-semester exams are crucial</li>
+<li><strong>Choose Electives Wisely:</strong> Select electives where you can perform well</li>
+<li><strong>Participate in Projects:</strong> Project work can boost your CGPA</li>
+<li><strong>Seek Help Early:</strong> Use faculty office hours and peer tutoring</li>
+<li><strong>Form Study Groups:</strong> Collaborative learning improves understanding</li>
+<li><strong>Manage Time Effectively:</strong> Balance academics with extracurriculars</li>
+</ul>
+
+<h2>SRM University Placement Criteria</h2>
+
+<h3>CGPA Requirements for Top Companies</h3>
+<table>
+<thead>
+<tr><th>Company Type</th><th>Minimum CGPA</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>Core Tech (Product)</td><td>8.0 - 8.5</td><td>Google, Microsoft, Amazon</td></tr>
+<tr><td>IT Services</td><td>7.0 - 7.5</td><td>TCS, Infosys, Wipro, Cognizant</td></tr>
+<tr><td>Startups</td><td>6.5 - 7.0</td><td>Various tech startups</td></tr>
+<tr><td>Core Engineering</td><td>7.0 - 7.5</td><td>L&T, Ashok Leyland</td></tr>
+<tr><td>Analytics</td><td>7.5 - 8.0</td><td>Mu Sigma, Fractal</td></tr>
+</tbody>
+</table>
+
+<h2>Frequently Asked Questions (FAQs)</h2>
+
+<div class="faq">
+<div class="faq-q">Q1: What is a good CGPA at SRM University?</div>
+<div class="faq-a">A CGPA of 8.0 and above is considered excellent at SRM. 7.0-7.9 is good, 6.0-6.9 is above average. Most top companies require a minimum of 7.0-7.5 CGPA for campus placements.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q2: How is SGPA different from CGPA at SRM?</div>
+<div class="faq-a">SGPA (Semester Grade Point Average) is your GPA for a single semester, while CGPA (Cumulative Grade Point Average) is the weighted average of all your SGPAs across all completed semesters.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q3: Can I improve my CGPA in later semesters?</div>
+<div class="faq-a">Yes, you can improve your CGPA by performing better in later semesters. However, early semesters have more impact due to cumulative calculation. Focus on high-credit courses for maximum improvement.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q4: What happens if I fail a course at SRM?</div>
+<div class="faq-a">If you fail a course (grade F), you get 0 grade points for that course, which negatively impacts your SGPA and CGPA. You must retake the course in the next available semester or supplementary exam.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q5: How many credits are required to graduate from SRM?</div>
+<div class="faq-a">For B.Tech programs, you typically need to complete 160-165 credits across 8 semesters. This includes core courses, electives, labs, projects, and internship.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q6: Does SRM have grade improvement option?</div>
+<div class="faq-a">Yes, SRM allows students to improve their grades through supplementary exams or by retaking courses. Check with your department for specific policies and procedures.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q7: What is the minimum CGPA required to avoid detention at SRM?</div>
+<div class="faq-a">Students must maintain a minimum CGPA of 5.0 to avoid academic detention. Additionally, 75% attendance is mandatory. Check your regulation handbook for specific requirements.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q8: How does SRM calculate internal marks?</div>
+<div class="faq-a">Internal marks (typically 40-50 marks) are calculated from continuous assessments including mid-term exams, assignments, quizzes, and attendance. These are added to end-semester exam marks for final grade.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q9: Can I take extra credits to improve CGPA?</div>
+<div class="faq-a">Yes, you can take additional elective courses or audit courses to improve your CGPA. However, there may be limits on maximum credits per semester. Consult your academic advisor.</div>
+</div>
+
+<div class="faq">
+<div class="faq-q">Q10: What CGPA is required for higher studies after SRM?</div>
+<div class="faq-a">For M.Tech in India, most IITs/NITs require 6.5-7.0 CGPA. For MS abroad, top universities prefer 8.0+ CGPA. For MBA, 7.0+ CGPA is competitive along with good entrance exam scores.</div>
+</div>
+
+<h2>Why Choose Our SRM CGPA Calculator?</h2>
+<ul>
+<li><strong>100% Free:</strong> No registration or payment required</li>
+<li><strong>Accurate Calculations:</strong> Based on official SRM grading system</li>
+<li><strong>All Departments:</strong> Works for CSE, ECE, EEE, MECH, IT, and all branches</li>
+<li><strong>Instant Results:</strong> Get your CGPA immediately</li>
+<li><strong>Mobile Friendly:</strong> Use on any device</li>
+<li><strong>No Ads:</strong> Clean, distraction-free interface</li>
+<li><strong>Privacy Protected:</strong> No data storage or collection</li>
+<li><strong>Easy to Use:</strong> Simple interface for quick calculations</li>
+<li><strong>2021 Regulation:</strong> Updated for current students</li>
+<li><strong>Percentage Conversion:</strong> Shows equivalent percentage</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>Calculating your CGPA at SRM University is straightforward when you understand the credit-based grading system. Our free calculator makes this process instant and accurate for all departments and regulations. Whether you're tracking your academic progress, preparing for placements, or planning for higher studies, this tool provides reliable CGPA calculations based on SRM's official grading system.</p>
+
+<p>Remember to maintain consistent performance across all semesters, as early semester grades significantly impact your overall CGPA. Focus on understanding concepts rather than just scoring marks, and utilize all available academic resources at SRM for the best results.</p>
+
+<p><strong>Last Updated:</strong> January 2025 | <strong>Regulation:</strong> 2021 | <strong>Calculations Performed:</strong> 50,000+</p>
+
+<p style="text-align:center;margin-top:30px">
+<a href="index.html" style="color:#3498db;font-weight:600">← Back to Home</a> | 
+<a href="cgpa-to-percentage.html" style="color:#3498db;font-weight:600">CGPA to % →</a> | 
+<a href="percentage-to-cgpa.html" style="color:#3498db;font-weight:600">% to CGPA →</a>
+</p>
+</div>
+
+<script>
+let n=0;
+function addSem(){
+n++;
+const d=document.getElementById('semesters');
+const r=document.createElement('div');
+r.className='sem-row';
+r.innerHTML=`<div class="sem-label">Sem ${n}</div><input type="number" step="0.01" min="0" max="10" placeholder="SGPA" id="s${n}"><input type="number" min="1" placeholder="Credits" id="c${n}">`;
+d.appendChild(r)
+}
+function calc(){
+let tp=0,tc=0;
+for(let i=1;i<=n;i++){
+const s=parseFloat(document.getElementById('s'+i).value);
+const c=parseFloat(document.getElementById('c'+i).value);
+if(s&&c){tp+=s*c;tc+=c}
+}
+if(tc>0){
+const cg=(tp/tc).toFixed(2);
+const pc=(cg*9.5).toFixed(2);
+document.getElementById('cgpa').textContent=cg;
+document.getElementById('details').innerHTML=`Total Credits: ${tc}<br>Total Grade Points: ${tp.toFixed(2)}<br>Percentage: ${pc}%`;
+document.getElementById('result').classList.add('show')
+}else{
+alert('Please add at least one semester with valid SGPA and credits')
+}
+}
+addSem();addSem()
+</script>
+</body>
+</html>

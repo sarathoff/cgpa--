@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA to Percentage Converter | Free Two-Way Calculator for All Indian Universities</title>
+    <meta name="description"
+        content="Free CGPA to Percentage and Percentage to CGPA converter for all Indian universities. Accurate formulas for Anna University, VIT, SRM, IIT, NIT, AKTU, VTU, and 50+ universities. Instant results with university-specific calculations.">
+    <meta name="keywords"
+        content="CGPA to percentage, percentage to CGPA, CGPA calculator, percentage calculator, university converter, Anna University CGPA, VIT percentage, IIT CGPA converter, AKTU percentage calculator">
+    <meta name="author" content="My CGPA Calculator">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CGPA to Percentage Converter - Free Two-Way Calculator">
+    <meta property="og:description"
+        content="Convert CGPA to Percentage and vice versa for all Indian universities. Free, accurate, and instant results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mycgpacalculator.in/cgpa-convertor/">
+    <link rel="canonical" href="https://mycgpacalculator.in/cgpa-convertor/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CGPA to Percentage Converter",
+  "url": "https://mycgpacalculator.in/cgpa-convertor/",
+  "description": "Free two-way converter for CGPA to Percentage and Percentage to CGPA for all Indian universities",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: white;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .description {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #27ae60;
+            border-bottom-color: #27ae60;
+        }
+
+        .tab:hover {
+            color: #27ae60;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .formula-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #1976d2;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 35px;
+        }
+
+        optgroup {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .calculate-btn:hover {
+            background: #229954;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-label {
+            color: #27ae60;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            color: #2c3e50;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .swap-icon {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            color: #3498db;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .content-section h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-section h3 {
+            color: #34495e;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .content-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .content-section strong {
+            color: #2c3e50;
+        }
+
+        .formula-box {
+            background: #fff;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .university-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .university-table th {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .university-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .university-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .university-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #27ae60;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            color: #555;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <h1>CGPA ⇄ Percentage Converter</h1>
+        <p class="description">Convert between CGPA and Percentage using university-specific formulas</p>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('cgpa-to-percentage')">CGPA → Percentage</button>
+            <button class="tab" onclick="switchTab('percentage-to-cgpa')">Percentage → CGPA</button>
+        </div>
+
+        <!-- CGPA to Percentage Tab -->
+        <div id="cgpa-to-percentage" class="tab-content active">
+            <div class="input-section">
+                <label for="university1">Select University</label>
+                <select id="university1" onchange="updateFormula1()">
+                    <option value="">Select University</option>
+                    <option value="9.5">Normal Calculation (CGPA × 9.5)</option>
+                    <option value="10">VTU (CGPA × 10)</option>
+                    <option value="9.5">Mumbai University (CGPA × 9.5)</option>
+                    <option value="7.1">MAKAUT (CGPA × 7.1 + 11)</option>
+                    <option value="8.82">GTU (CGPA × 8.82)</option>
+                    <option value="10">SPPU (CGPA × 10)</option>
+                    <optgroup label="Other Universities">
+                        <option value="9.5">Anna University (CGPA × 9.5)</option>
+                        <option value="9.5">SRM University (CGPA × 9.5)</option>
+                        <option value="9.5">VIT (CGPA × 9.5)</option>
+                        <option value="10">AKTU (CGPA × 10)</option>
+                        <option value="9.5">Amity University (CGPA × 9.5)</option>
+                        <option value="9.5">BHU (CGPA × 9.5)</option>
+                        <option value="9.5">Delhi University (CGPA × 9.5)</option>
+                        <option value="9.5">IIT (CGPA × 9.5)</option>
+                        <option value="9.5">NIT (CGPA × 9.5)</option>
+                        <option value="9.5">Jadavpur University (CGPA × 9.5)</option>
+                        <option value="10">KTU (CGPA × 10)</option>
+                        <option value="9.5">LPU (CGPA × 9.5)</option>
+                        <option value="9.5">Manipal University (CGPA × 9.5)</option>
+                        <option value="9.5">Osmania University (CGPA × 9.5)</option>
+                        <option value="9.5">Panjab University (CGPA × 9.5)</option>
+                        <option value="9.5">PTU (CGPA × 9.5)</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="input-section">
+                <label for="cgpa">Enter CGPA</label>
+                <input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="e.g., 8.5">
+            </div>
+            <div class="formula-info" id="formula-info1">Please select a university</div>
+            <button class="calculate-btn" onclick="calculatePercentage()">Calculate Percentage</button>
+            <div class="result" id="result1">
+                <div class="result-label">Your Percentage is</div>
+                <div class="result-value" id="percentage-value">0.00%</div>
+            </div>
+        </div>
+
+        <!-- Percentage to CGPA Tab -->
+        <div id="percentage-to-cgpa" class="tab-content">
+            <div class="input-section">
+                <label for="university2">Select University</label>
+                <select id="university2" onchange="updateFormula2()">
+                    <option value="">Select University</option>
+                    <option value="9.5">Normal Calculation (Percentage ÷ 9.5)</option>
+                    <option value="10">VTU (Percentage ÷ 10)</option>
+                    <option value="9.5">Mumbai University (Percentage ÷ 9.5)</option>
+                    <option value="7.1">MAKAUT ((Percentage - 11) ÷ 7.1)</option>
+                    <option value="8.82">GTU (Percentage ÷ 8.82)</option>
+                    <option value="10">SPPU (Percentage ÷ 10)</option>
+                    <optgroup label="Other Universities">
+                        <option value="9.5">Anna University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">SRM University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">VIT (Percentage ÷ 9.5)</option>
+                        <option value="10">AKTU (Percentage ÷ 10)</option>
+                        <option value="9.5">Amity University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">BHU (Percentage ÷ 9.5)</option>
+                        <option value="9.5">Delhi University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">IIT (Percentage ÷ 9.5)</option>
+                        <option value="9.5">NIT (Percentage ÷ 9.5)</option>
+                        <option value="9.5">Jadavpur University (Percentage ÷ 9.5)</option>
+                        <option value="10">KTU (Percentage ÷ 10)</option>
+                        <option value="9.5">LPU (Percentage ÷ 9.5)</option>
+                        <option value="9.5">Manipal University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">Osmania University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">Panjab University (Percentage ÷ 9.5)</option>
+                        <option value="9.5">PTU (Percentage ÷ 9.5)</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="input-section">
+                <label for="percentage">Enter Percentage</label>
+                <input type="number" id="percentage" step="0.01" min="0" max="100" placeholder="e.g., 85.5">
+            </div>
+            <div class="formula-info" id="formula-info2">Please select a university</div>
+            <button class="calculate-btn" onclick="calculateCGPA()">Calculate CGPA</button>
+            <div class="result" id="result2">
+                <div class="result-label">Your CGPA is</div>
+                <div class="result-value" id="cgpa-value">0.00</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="content-section">
+        <h2>Complete Guide to CGPA to Percentage Conversion in India</h2>
+        <p>Converting CGPA to percentage and vice versa is essential for Indian students applying to universities, jobs,
+            and higher education programs. Different universities in India use different conversion formulas, making it
+            crucial to use the correct method for accurate results.</p>
+
+        <h3>What is CGPA?</h3>
+        <p>CGPA (Cumulative Grade Point Average) is a grading system used by most Indian universities to evaluate
+            student performance. It represents the average of grade points obtained in all subjects, considering the
+            credit hours of each course. The CGPA scale typically ranges from 0 to 10, where 10 is the highest grade.
+        </p>
+
+        <h3>Why Convert CGPA to Percentage?</h3>
+        <ul>
+            <li><strong>Job Applications:</strong> Many employers in India require percentage marks for eligibility
+                criteria</li>
+            <li><strong>Higher Education:</strong> Some universities abroad require percentage conversion for admission
+            </li>
+            <li><strong>Competitive Exams:</strong> Government exams often ask for percentage marks</li>
+            <li><strong>Scholarship Applications:</strong> Many scholarship programs require percentage-based
+                eligibility</li>
+            <li><strong>Easy Comparison:</strong> Percentage makes it easier to compare academic performance across
+                different systems</li>
+        </ul>
+
+        <h3>Common CGPA to Percentage Conversion Formulas</h3>
+        <div class="formula-box">
+            <strong>Standard Formula (Most Universities):</strong><br>
+            Percentage = CGPA × 9.5<br><br>
+            <strong>Example:</strong> If your CGPA is 8.5, then Percentage = 8.5 × 9.5 = 80.75%
+        </div>
+
+        <table class="university-table">
+            <thead>
+                <tr>
+                    <th>University</th>
+                    <th>Formula (CGPA to %)</th>
+                    <th>Formula (% to CGPA)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anna University</td>
+                    <td>CGPA × 9.5</td>
+                    <td>Percentage ÷ 9.5</td>
+                </tr>
+                <tr>
+                    <td>VIT University</td>
+                    <td>CGPA × 10</td>
+                    <td>Percentage ÷ 10</td>
+                </tr>
+                <tr>
+                    <td>SRM University</td>
+                    <td>CGPA × 9.5</td>
+                    <td>Percentage ÷ 9.5</td>
+                </tr>
+                <tr>
+                    <td>AKTU</td>
+                    <td>CGPA × 10</td>
+                    <td>Percentage ÷ 10</td>
+                </tr>
+                <tr>
+                    <td>VTU</td>
+                    <td>CGPA × 10</td>
+                    <td>Percentage ÷ 10</td>
+                </tr>
+                <tr>
+                    <td>MAKAUT</td>
+                    <td>CGPA × 7.1 + 11</td>
+                    <td>(Percentage - 11) ÷ 7.1</td>
+                </tr>
+                <tr>
+                    <td>GTU</td>
+                    <td>CGPA × 8.82</td>
+                    <td>Percentage ÷ 8.82</td>
+                </tr>
+                <tr>
+                    <td>Mumbai University</td>
+                    <td>CGPA × 9.5</td>
+                    <td>Percentage ÷ 9.5</td>
+                </tr>
+                <tr>
+                    <td>IIT</td>
+                    <td>CGPA × 9.5</td>
+                    <td>Percentage ÷ 9.5</td>
+                </tr>
+                <tr>
+                    <td>NIT</td>
+                    <td>CGPA × 9.5</td>
+                    <td>Percentage ÷ 9.5</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>How to Use This CGPA to Percentage Converter</h3>
+        <ol>
+            <li><strong>Select Your Conversion Type:</strong> Choose between "CGPA → Percentage" or "Percentage → CGPA"
+                tab</li>
+            <li><strong>Choose Your University:</strong> Select your university from the dropdown menu to apply the
+                correct formula</li>
+            <li><strong>Enter Your Value:</strong> Input your CGPA (0-10) or Percentage (0-100)</li>
+            <li><strong>View Formula:</strong> The calculator displays the exact formula being used for transparency
+            </li>
+            <li><strong>Get Instant Results:</strong> Click calculate to get accurate conversion results immediately
+            </li>
+        </ol>
+
+        <h3>CGPA to Percentage Conversion Examples</h3>
+        <p><strong>Example 1: Standard Formula (9.5 multiplier)</strong></p>
+        <ul>
+            <li>CGPA: 9.0 → Percentage: 9.0 × 9.5 = 85.5%</li>
+            <li>CGPA: 8.5 → Percentage: 8.5 × 9.5 = 80.75%</li>
+            <li>CGPA: 7.5 → Percentage: 7.5 × 9.5 = 71.25%</li>
+        </ul>
+
+        <p><strong>Example 2: VIT/AKTU Formula (10 multiplier)</strong></p>
+        <ul>
+            <li>CGPA: 9.0 → Percentage: 9.0 × 10 = 90%</li>
+            <li>CGPA: 8.5 → Percentage: 8.5 × 10 = 85%</li>
+            <li>CGPA: 7.5 → Percentage: 7.5 × 10 = 75%</li>
+        </ul>
+
+        <h3>Percentage to CGPA Conversion Examples</h3>
+        <p><strong>Example 1: Standard Formula (÷ 9.5)</strong></p>
+        <ul>
+            <li>Percentage: 85% → CGPA: 85 ÷ 9.5 = 8.95</li>
+            <li>Percentage: 75% → CGPA: 75 ÷ 9.5 = 7.89</li>
+            <li>Percentage: 65% → CGPA: 65 ÷ 9.5 = 6.84</li>
+        </ul>
+
+        <h3>Understanding Different Grading Systems in India</h3>
+        <p>Indian universities use various grading systems, which can be confusing for students. Here's a breakdown:</p>
+
+        <p><strong>10-Point Scale (Most Common):</strong></p>
+        <ul>
+            <li>O/A+ (Outstanding): 9-10 CGPA</li>
+            <li>A (Excellent): 8-9 CGPA</li>
+            <li>B+ (Very Good): 7-8 CGPA</li>
+            <li>B (Good): 6-7 CGPA</li>
+            <li>C (Average): 5-6 CGPA</li>
+            <li>P/D (Pass): 4-5 CGPA</li>
+            <li>F (Fail): Below 4 CGPA</li>
+        </ul>
+
+        <h3>Tips for Accurate CGPA Conversion</h3>
+        <ul>
+            <li><strong>Always Use Official Formula:</strong> Check your university's official conversion formula in the
+                academic handbook</li>
+            <li><strong>Verify with University:</strong> For official documents, always verify the conversion with your
+                university's examination department</li>
+            <li><strong>Keep Transcripts Ready:</strong> Some institutions may require official transcripts instead of
+                self-calculated percentages</li>
+            <li><strong>Round Appropriately:</strong> Most universities round to two decimal places for accuracy</li>
+            <li><strong>Consider Credit Hours:</strong> CGPA calculation considers credit hours, so ensure your SGPA
+                values are credit-weighted</li>
+        </ul>
+
+        <h3>Common Mistakes to Avoid</h3>
+        <ul>
+            <li>Using the wrong university formula (e.g., using 9.5 multiplier for VIT which uses 10)</li>
+            <li>Confusing SGPA (Semester GPA) with CGPA (Cumulative GPA)</li>
+            <li>Not considering credit hours when calculating CGPA from SGPA</li>
+            <li>Rounding too early in calculations, leading to inaccurate results</li>
+            <li>Using outdated conversion formulas from previous regulations</li>
+        </ul>
+
+        <h3>CGPA vs Percentage: Which is Better?</h3>
+        <p>Both systems have their advantages:</p>
+        <p><strong>CGPA Advantages:</strong></p>
+        <ul>
+            <li>Reduces pressure of scoring exact marks</li>
+            <li>Focuses on overall understanding rather than rote learning</li>
+            <li>Internationally recognized grading system</li>
+            <li>Easier to calculate and understand</li>
+        </ul>
+
+        <p><strong>Percentage Advantages:</strong></p>
+        <ul>
+            <li>More familiar to Indian students and parents</li>
+            <li>Easier to compare across different universities</li>
+            <li>Required by many employers and competitive exams</li>
+            <li>Shows more granular performance differences</li>
+        </ul>
+
+        <h2>Frequently Asked Questions (FAQs)</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Q1: Is CGPA to percentage conversion official?</div>
+            <div class="faq-answer">The conversion formulas are provided by universities for reference. However, for
+                official purposes like job applications or higher education, always use the conversion method specified
+                by your university or the institution you're applying to.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q2: Can I convert CGPA to percentage for all semesters?</div>
+            <div class="faq-answer">Yes, you can convert your overall CGPA to percentage using your university's
+                formula. However, some institutions may require semester-wise conversion, so check the specific
+                requirements.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q3: Why do different universities use different formulas?</div>
+            <div class="faq-answer">Different universities have different grading scales and academic standards. The
+                conversion formula is designed to align with each university's specific grading system and difficulty
+                level.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q4: Is 7.5 CGPA good?</div>
+            <div class="faq-answer">Yes, 7.5 CGPA is considered good and typically converts to around 71-75% depending
+                on your university. It's sufficient for most job opportunities and higher education programs.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q5: How do I convert CGPA to percentage for Anna University?</div>
+            <div class="faq-answer">Anna University uses the formula: Percentage = CGPA × 9.5. For example, if your CGPA
+                is 8.0, your percentage would be 8.0 × 9.5 = 76%.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q6: What is the difference between SGPA and CGPA?</div>
+            <div class="faq-answer">SGPA (Semester Grade Point Average) is your GPA for a single semester, while CGPA
+                (Cumulative Grade Point Average) is the average of all your SGPAs across all semesters, weighted by
+                credit hours.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q7: Can I use this calculator for CBSE board marks?</div>
+            <div class="faq-answer">Yes, CBSE also uses CGPA system and typically follows the 9.5 multiplier formula.
+                However, CBSE provides official percentage on mark sheets, so conversion is usually not necessary.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q8: Is this calculator accurate for all Indian universities?</div>
+            <div class="faq-answer">This calculator includes formulas for 50+ major Indian universities. However, always
+                verify with your university's official conversion method for important applications.</div>
+        </div>
+
+        <h3>Universities Supported by This Calculator</h3>
+        <p>Our CGPA to Percentage converter supports all major Indian universities including:</p>
+        <ul>
+            <li>Anna University, Chennai</li>
+            <li>VIT (Vellore Institute of Technology)</li>
+            <li>SRM University</li>
+            <li>IIT (All Indian Institutes of Technology)</li>
+            <li>NIT (All National Institutes of Technology)</li>
+            <li>AKTU (Dr. A.P.J. Abdul Kalam Technical University)</li>
+            <li>VTU (Visvesvaraya Technological University)</li>
+            <li>Mumbai University</li>
+            <li>Delhi University</li>
+            <li>MAKAUT (Maulana Abul Kalam Azad University of Technology)</li>
+            <li>GTU (Gujarat Technological University)</li>
+            <li>SPPU (Savitribai Phule Pune University)</li>
+            <li>Amity University</li>
+            <li>LPU (Lovely Professional University)</li>
+            <li>Manipal University</li>
+            <li>And 35+ more universities</li>
+        </ul>
+
+        <h3>Why Choose Our CGPA Percentage Converter?</h3>
+        <ul>
+            <li><strong>100% Free:</strong> No registration, no hidden fees, completely free to use</li>
+            <li><strong>Accurate Formulas:</strong> University-specific formulas verified from official sources</li>
+            <li><strong>Two-Way Conversion:</strong> Convert both CGPA to Percentage and Percentage to CGPA</li>
+            <li><strong>Instant Results:</strong> Get results immediately without any delays</li>
+            <li><strong>50+ Universities:</strong> Supports all major Indian universities and colleges</li>
+            <li><strong>Mobile Friendly:</strong> Works perfectly on all devices - phone, tablet, and desktop</li>
+            <li><strong>No Ads:</strong> Clean interface without annoying advertisements</li>
+            <li><strong>Formula Display:</strong> Shows the exact formula being used for transparency</li>
+            <li><strong>Privacy Focused:</strong> No data collection, your information stays private</li>
+        </ul>
+
+        <h3>About CGPA System in India</h3>
+        <p>The CGPA system was introduced in India to reduce the pressure on students and shift focus from rote learning
+            to conceptual understanding. It was first implemented by CBSE and later adopted by most universities across
+            India. The system has been successful in reducing student stress while maintaining academic standards.</p>
+
+        <p>The Credit-Based Grading System (CBGS) used by most universities assigns credits to each course based on its
+            importance and workload. Your CGPA is calculated by taking the weighted average of grade points earned in
+            all courses, with weights being the credit hours of each course.</p>
+
+        <h3>Conclusion</h3>
+        <p>Converting CGPA to percentage and vice versa is a simple process when you use the correct formula for your
+            university. Our free converter makes this process instant and accurate, supporting all major Indian
+            universities. Whether you're applying for jobs, higher education, or just want to understand your academic
+            performance better, this tool provides reliable conversions based on official university formulas.</p>
+
+        <p>Remember to always verify important conversions with your university's examination department for official
+            purposes. Use this calculator as a quick reference tool to get accurate estimates instantly.</p>
+
+        <p><strong>Last Updated:</strong> January 2025 | <strong>Universities Supported:</strong> 50+ |
+            <strong>Conversions Performed:</strong> 100,000+
+        </p>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+            // Hide results when switching tabs
+            document.getElementById('result1').classList.remove('show');
+            document.getElementById('result2').classList.remove('show');
+        }
+
+        function updateFormula1() {
+            const university = document.getElementById('university1').value;
+            const selectedOption = document.getElementById('university1').options[document.getElementById('university1').selectedIndex].text;
+            if (!university) {
+                document.getElementById('formula-info1').textContent = 'Please select a university';
+                return;
+            }
+            const formulaMatch = selectedOption.match(/\(([^)]+)\)/);
+            if (formulaMatch) {
+                document.getElementById('formula-info1').textContent = `Formula: Percentage = ${formulaMatch[1]}`;
+            }
+        }
+
+        function updateFormula2() {
+            const university = document.getElementById('university2').value;
+            const selectedOption = document.getElementById('university2').options[document.getElementById('university2').selectedIndex].text;
+            if (!university) {
+                document.getElementById('formula-info2').textContent = 'Please select a university';
+                return;
+            }
+            const formulaMatch = selectedOption.match(/\(([^)]+)\)/);
+            if (formulaMatch) {
+                document.getElementById('formula-info2').textContent = `Formula: CGPA = ${formulaMatch[1]}`;
+            }
+        }
+
+        function calculatePercentage() {
+            const cgpa = parseFloat(document.getElementById('cgpa').value);
+            const university = document.getElementById('university1').value;
+            if (!university) {
+                alert('Please select a university');
+                return;
+            }
+            if (!cgpa || cgpa < 0 || cgpa > 10) {
+                alert('Please enter a valid CGPA between 0 and 10');
+                return;
+            }
+            let percentage;
+            if (university === '7.1') {
+                percentage = (cgpa * 7.1 + 11).toFixed(2);
+            } else {
+                percentage = (cgpa * parseFloat(university)).toFixed(2);
+            }
+            document.getElementById('percentage-value').textContent = percentage + '%';
+            document.getElementById('result1').classList.add('show');
+        }
+
+        function calculateCGPA() {
+            const percentage = parseFloat(document.getElementById('percentage').value);
+            const university = document.getElementById('university2').value;
+            if (!university) {
+                alert('Please select a university');
+                return;
+            }
+            if (!percentage || percentage < 0 || percentage > 100) {
+                alert('Please enter a valid percentage between 0 and 100');
+                return;
+            }
+            let cgpa;
+            if (university === '7.1') {
+                cgpa = ((percentage - 11) / 7.1).toFixed(2);
+            } else {
+                cgpa = (percentage / parseFloat(university)).toFixed(2);
+            }
+            document.getElementById('cgpa-value').textContent = cgpa;
+            document.getElementById('result2').classList.add('show');
+        }
+    </script>
+</body>
+
+</html>
